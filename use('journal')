@@ -1,0 +1,3 @@
+use('journal')
+
+db.goals.find({...})
