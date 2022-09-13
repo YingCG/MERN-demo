@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 import Nav from './Nav'
 
 function Projects() {
@@ -6,7 +7,7 @@ function Projects() {
 
   useEffect(() => {
     async function fetchProjects(){
-      const response = await fetch(`http://localhost:8000/api/projects`);
+      const response = await fetch("http://localhost:5000/api/projects");
 
       if(!response.ok){
         const message = `An error occurred: ${response.statusText}`
@@ -26,8 +27,14 @@ function Projects() {
       <Nav />
       <h1>Check out our Projects</h1>
       <div>{projects.map((project) => (
-        <h3>{project.text}</h3>
+        <>
+        <h3>{project.title}</h3>
+        <p>{project.content}</p>
+        </>
+        
       ))}</div>
+      <Link className="btn-link" to={'/projects/create'}>Add Project</Link> |
+
     </div>
   )
 }

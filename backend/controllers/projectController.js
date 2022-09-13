@@ -15,7 +15,7 @@ const getProjects = asyncHandler( async (req, res) => {
 // @access   Private
 const setProjects = asyncHandler( async (req, res) => {
     // console.log(req.body);
-    if(!req.body.text)
+    if(!req.body.title)
     {
         res.status(400)
         // if not with express handler we do .json
@@ -23,10 +23,15 @@ const setProjects = asyncHandler( async (req, res) => {
         throw new Error( "Please add a text field") // this come with lot of errors. To do this we can add the error middleware
     }
     const project = await Project.create({
-        text: req.body.text
+        title: req.body.title,
+        content: req.body.content
     })
     res.status(200).json(project)
 })
+
+// const createProject = asyncHandler( async (req, res) => {
+//     const newProject = await newProject.save();
+// })
 
 // @describe Update goals
 // @route    PUT /api/projects/:id

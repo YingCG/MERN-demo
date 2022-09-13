@@ -1,12 +1,18 @@
 const mongoose = require("mongoose")
 
 const projectSchema = mongoose.Schema({
-    text: {
+    title: {
         type: String,
-        require: [true, 'please add a text value']
+        required: [true, 'please add a title ']
+    },
+    content: {
+        type: String,
+        required: true,
     }
-}, {
+},
+{
     timestamps: true,
 })
+
 
 module.exports = mongoose.model("Project", projectSchema)
