@@ -16,4 +16,4 @@ app.use(express.urlencoded({ extended: false }))
 app.use('/api/projects', require('./routes/projectRoutes'))
 app.use(errorHandler)
 
-app.listen(port, () => console.log(`Server stared on port ${port}`))
+app.listen(port, () => console.log(`Hello, Server stared on port ${port}`))
